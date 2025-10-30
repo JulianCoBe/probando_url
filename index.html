@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Aprende desarrollo web con nuestro proyecto educativo">
+    <title>TechLearn - Inicio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 
+    INSTRUCCIONES PARA ESTUDIANTES:
+    1. Crear un archivo CSS externo llamado "styles.css" en la misma carpeta
+    2. NO usar estilos inline (style="") en ningún elemento
+    3. Implementar diseño responsive con enfoque mobile-first
+    4. Usar Flexbox para el navbar y las tarjetas
+    5. Usar CSS Grid para las secciones principales
+    6. Crear variables CSS para colores y espaciado
+    7. Añadir estados hover y focus a elementos interactivos
+    -->
+    
+    <!-- HEADER: Encabezado con navegación principal -->
+    <header class="site-header">
+        <div class="container">
+            <h1 class="logo">TechLearn</h1>
+            
+            <nav class="site-nav" aria-label="Navegación principal">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link active">Inicio</a></li>
+                    <li><a href="about.html" class="nav-link">Sobre Nosotros</a></li>
+                    <li><a href="gallery.html" class="nav-link">Galería</a></li>
+                    <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="contact.html" class="nav-link">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN: Contenido principal de la página -->
+    <main>
+        <!-- Sección Hero: Presentación principal -->
+        <section class="hero">
+            <div class="container">
+                <h2 class="hero-title">Aprende Desarrollo Web desde Cero</h2>
+                <p class="hero-subtitle">Domina HTML, CSS y las mejores prácticas de diseño web moderno</p>
+                <a href="servicios.html" class="btn btn-primary">Explorar Servicios</a>
+            </div>
+        </section>
+
+        <!-- Sección de tarjetas destacadas -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">¿Por qué elegirnos?</h2>
+                
+                <div class="card-grid">
+                    <!-- Tarjeta 1 -->
+                    <article class="card">
+                        <div class="card-icon">📚</div>
+                        <h3 class="card-title">Contenido de Calidad</h3>
+                        <p class="card-text">Aprende con materiales actualizados y ejemplos prácticos que te preparan para el mundo real.</p>
+                    </article>
+
+                    <!-- Tarjeta 2 -->
+                    <article class="card">
+                        <div class="card-icon">👨‍💻</div>
+                        <h3 class="card-title">Práctica Constante</h3>
+                        <p class="card-text">Proyectos reales y ejercicios diseñados para reforzar tus conocimientos paso a paso.</p>
+                    </article>
+
+                    <!-- Tarjeta 3 -->
+                    <article class="card">
+                        <div class="card-icon">🚀</div>
+                        <h3 class="card-title">Resultados Rápidos</h3>
+                        <p class="card-text">Metodología enfocada en lograr resultados tangibles desde la primera semana de aprendizaje.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Llamada a la acción -->
+        <section class="cta">
+            <div class="container">
+                <h2>¿Listo para empezar?</h2>
+                <p>Descubre todos nuestros servicios y comienza tu viaje en el desarrollo web</p>
+                <a href="servicios.html" class="btn btn-secondary">Ver Servicios</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER: Pie de página -->
+    <footer class="site-footer">
+        <div class="container">
+            <section class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <nav aria-label="Enlaces del footer">
+                    <ul class="footer-links">
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                        <li><a href="#">Mapa del Sitio</a></li>
+                    </ul>
+                </nav>
+            </section>
+
+            <section class="footer-section">
+                <h3>Síguenos</h3>
+                <nav aria-label="Redes sociales" class="social-links">
+                    <a href="#" aria-label="Facebook">Facebook</a>
+                    <a href="#" aria-label="Twitter">Twitter</a>
+                    <a href="#" aria-label="Instagram">Instagram</a>
+                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                </nav>
+            </section>
+
+            <p class="copyright">&copy; 2024 TechLearn. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

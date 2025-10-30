@@ -1,0 +1,496 @@
+/* ========================================
+   ARCHIVO: styles.css
+   PROYECTO: TechLearn - Sitio Web Educativo
+   DESCRIPCIÓN: Estilos básicos para practicar CSS
+   ======================================== */
+
+/* ==========================================
+   SECCIÓN 1: VARIABLES CSS (Custom Properties)
+   ========================================== */
+/* Las variables CSS nos permiten reutilizar valores en todo el archivo */
+:root {
+  /* Paleta de colores principal */
+  --color-primary: #4A90E2; /* Azul principal para botones y enlaces */
+  --color-secondary: #50C878; /* Verde para elementos secundarios */
+  --color-accent: #E94B3C; /* Rojo para alertas o destacados */
+  --color-dark: #2C3E50; /* Gris oscuro para texto principal */
+  --color-light: #ECF0F1; /* Gris claro para fondos */
+  --color-white: #FFFFFF; /* Blanco puro */
+  
+  /* Espaciado consistente (enfoque mobile-first) */
+  --spacing-xs: 0.5rem; /* 8px - espaciado muy pequeño */
+  --spacing-sm: 1rem; /* 16px - espaciado pequeño */
+  --spacing-md: 1.5rem; /* 24px - espaciado medio */
+  --spacing-lg: 2rem; /* 32px - espaciado grande */
+  --spacing-xl: 3rem; /* 48px - espaciado extra grande */
+  
+  /* Tipografía */
+  --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; /* Fuentes del sistema */
+  --font-size-base: 16px; /* Tamaño base de fuente */
+  --line-height-base: 1.6; /* Altura de línea para buena legibilidad */
+  
+  /* Bordes y sombras */
+  --border-radius: 8px; /* Radio de bordes redondeados */
+  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para tarjetas */
+  --box-shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada al hacer hover */
+  
+  /* Transiciones */
+  --transition-speed: 0.3s; /* Velocidad de animaciones */
+}
+
+/* ==========================================
+   SECCIÓN 2: RESET Y ESTILOS BASE
+   ========================================== */
+/* Reset básico para eliminar estilos predeterminados del navegador */
+* {
+  margin: 0; /* Elimina márgenes por defecto */
+  padding: 0; /* Elimina relleno por defecto */
+  box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+/* Estilos base del body */
+body {
+  font-family: var(--font-main); /* Aplica la fuente definida en variables */
+  font-size: var(--font-size-base); /* Tamaño de fuente base */
+  line-height: var(--line-height-base); /* Altura de línea para legibilidad */
+  color: var(--color-dark); /* Color de texto principal */
+  background-color: var(--color-white); /* Fondo blanco */
+}
+
+/* Estilos para imágenes responsive */
+img {
+  max-width: 100%; /* Las imágenes no sobrepasan su contenedor */
+  height: auto; /* Mantiene la proporción de aspecto */
+  display: block; /* Elimina espacio extra debajo de la imagen */
+}
+
+/* Estilos para enlaces */
+a {
+  color: var(--color-primary); /* Color de los enlaces */
+  text-decoration: none; /* Sin subrayado por defecto */
+  transition: color var(--transition-speed); /* Transición suave al cambiar de color */
+}
+
+/* Estado hover para enlaces */
+a:hover {
+  color: var(--color-secondary); /* Cambia de color al pasar el mouse */
+}
+
+/* Estado focus para accesibilidad */
+a:focus {
+  outline: 2px solid var(--color-primary); /* Borde visible al navegar con teclado */
+  outline-offset: 2px; /* Espacio entre el elemento y el outline */
+}
+
+/* ==========================================
+   SECCIÓN 3: CONTENEDOR PRINCIPAL
+   ========================================== */
+/* Clase contenedora para limitar el ancho del contenido */
+.container {
+  width: 100%; /* Ocupa todo el ancho disponible */
+  max-width: 1200px; /* Ancho máximo para pantallas grandes */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  padding: 0 var(--spacing-sm); /* Padding lateral */
+}
+
+/* ==========================================
+   SECCIÓN 4: HEADER Y NAVEGACIÓN
+   ========================================== */
+/* Estilos del encabezado principal */
+.site-header {
+  background-color: var(--color-dark); /* Fondo oscuro */
+  color: var(--color-white); /* Texto blanco */
+  padding: var(--spacing-md) 0; /* Padding vertical */
+  box-shadow: var(--box-shadow); /* Sombra sutil */
+}
+
+/* Contenedor interno del header usa Flexbox */
+.site-header .container {
+  display: flex; /* Activa Flexbox */
+  justify-content: space-between; /* Espacia elementos a los extremos */
+  align-items: center; /* Centra verticalmente */
+  flex-wrap: wrap; /* Permite que los elementos bajen en pantallas pequeñas */
+}
+
+/* Estilos del logo */
+.logo {
+  font-size: 1.5rem; /* Tamaño de fuente grande */
+  font-weight: bold; /* Texto en negrita */
+  color: var(--color-white); /* Color blanco */
+}
+
+/* Navegación principal */
+.site-nav {
+  /* Este elemento contendrá la lista de navegación */
+}
+
+/* Lista de navegación sin estilos de lista */
+.nav-list {
+  list-style: none; /* Elimina los puntos de la lista */
+  display: flex; /* Usa Flexbox para layout horizontal */
+  gap: var(--spacing-md); /* Espacio entre items */
+  flex-wrap: wrap; /* Permite wrap en pantallas pequeñas */
+}
+
+/* Enlaces de navegación */
+.nav-link {
+  color: var(--color-white); /* Texto blanco */
+  padding: var(--spacing-xs) var(--spacing-sm); /* Padding para área clickeable */
+  border-radius: var(--border-radius); /* Bordes redondeados */
+  transition: background-color var(--transition-speed); /* Transición suave */
+}
+
+/* Hover en enlaces de navegación */
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+  color: var(--color-white); /* Mantiene el color blanco */
+}
+
+/* Enlace activo (página actual) */
+.nav-link.active {
+  background-color: var(--color-primary); /* Fondo azul */
+  color: var(--color-white); /* Texto blanco */
+}
+
+/* ==========================================
+   SECCIÓN 5: MAIN CONTENT
+   ========================================== */
+/* Contenedor principal del contenido */
+main {
+  min-height: 60vh; /* Altura mínima para que el footer no suba */
+}
+
+/* ==========================================
+   SECCIÓN 6: SECCIÓN HERO
+   ========================================== */
+/* Hero es la sección destacada de bienvenida */
+.hero {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); /* Gradiente de colores */
+  color: var(--color-white); /* Texto blanco */
+  text-align: center; /* Texto centrado */
+  padding: var(--spacing-xl) var(--spacing-sm); /* Padding generoso */
+}
+
+/* Título del hero */
+.hero-title {
+  font-size: 2.5rem; /* Tamaño grande */
+  margin-bottom: var(--spacing-sm); /* Espacio inferior */
+}
+
+/* Subtítulo del hero */
+.hero-subtitle {
+  font-size: 1.2rem; /* Tamaño mediano */
+  margin-bottom: var(--spacing-lg); /* Espacio inferior */
+  opacity: 0.9; /* Ligeramente transparente */
+}
+
+/* ==========================================
+   SECCIÓN 7: BOTONES
+   ========================================== */
+/* Estilos base para todos los botones */
+.btn {
+  display: inline-block; /* Comportamiento de bloque inline */
+  padding: var(--spacing-sm) var(--spacing-lg); /* Padding interno */
+  border-radius: var(--border-radius); /* Bordes redondeados */
+  font-weight: bold; /* Texto en negrita */
+  text-align: center; /* Texto centrado */
+  cursor: pointer; /* Cursor de mano al pasar el mouse */
+  border: none; /* Sin borde por defecto */
+  transition: all var(--transition-speed); /* Transición en todas las propiedades */
+}
+
+/* Botón primario */
+.btn-primary {
+  background-color: var(--color-primary); /* Fondo azul */
+  color: var(--color-white); /* Texto blanco */
+}
+
+/* Hover del botón primario */
+.btn-primary:hover {
+  background-color: #3A7BC8; /* Azul más oscuro */
+  transform: translateY(-2px); /* Efecto de elevación */
+  box-shadow: var(--box-shadow-hover); /* Sombra más pronunciada */
+}
+
+/* Botón secundario */
+.btn-secondary {
+  background-color: var(--color-secondary); /* Fondo verde */
+  color: var(--color-white); /* Texto blanco */
+}
+
+/* Hover del botón secundario */
+.btn-secondary:hover {
+  background-color: #40A868; /* Verde más oscuro */
+  transform: translateY(-2px); /* Efecto de elevación */
+  box-shadow: var(--box-shadow-hover); /* Sombra más pronunciada */
+}
+
+/* Botón con borde (outline) */
+.btn-outline {
+  background-color: transparent; /* Sin fondo */
+  border: 2px solid var(--color-primary); /* Borde azul */
+  color: var(--color-primary); /* Texto azul */
+}
+
+/* Hover del botón outline */
+.btn-outline:hover {
+  background-color: var(--color-primary); /* Fondo azul al hover */
+  color: var(--color-white); /* Texto blanco al hover */
+}
+
+/* ==========================================
+   SECCIÓN 8: TARJETAS (CARDS)
+   ========================================== */
+/* Grid de tarjetas usando CSS Grid */
+.card-grid {
+  display: grid; /* Activa CSS Grid */
+  grid-template-columns: 1fr; /* Una columna en móvil */
+  gap: var(--spacing-lg); /* Espacio entre tarjetas */
+  margin-top: var(--spacing-lg); /* Espacio superior */
+}
+
+/* Estilos de cada tarjeta */
+.card {
+  background-color: var(--color-white); /* Fondo blanco */
+  border-radius: var(--border-radius); /* Bordes redondeados */
+  padding: var(--spacing-lg); /* Padding interno */
+  box-shadow: var(--box-shadow); /* Sombra sutil */
+  text-align: center; /* Texto centrado */
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed); /* Transiciones suaves */
+}
+
+/* Hover en tarjetas */
+.card:hover {
+  transform: translateY(-5px); /* Efecto de elevación */
+  box-shadow: var(--box-shadow-hover); /* Sombra más pronunciada */
+}
+
+/* Icono de la tarjeta */
+.card-icon {
+  font-size: 3rem; /* Tamaño grande para el emoji/icono */
+  margin-bottom: var(--spacing-sm); /* Espacio inferior */
+}
+
+/* Título de la tarjeta */
+.card-title {
+  font-size: 1.5rem; /* Tamaño mediano */
+  margin-bottom: var(--spacing-sm); /* Espacio inferior */
+  color: var(--color-dark); /* Color oscuro */
+}
+
+/* Texto de la tarjeta */
+.card-text {
+  color: #7F8C8D; /* Gris para texto secundario */
+  line-height: 1.6; /* Buena altura de línea */
+}
+
+/* ==========================================
+   SECCIÓN 9: SECCIONES GENERALES
+   ========================================== */
+/* Estilos para secciones de contenido */
+.features,
+.about-content,
+.services,
+.blog-posts,
+.contact-section {
+  padding: var(--spacing-xl) 0; /* Padding vertical generoso */
+}
+
+/* Títulos de sección */
+.section-title {
+  font-size: 2rem; /* Tamaño grande */
+  text-align: center; /* Centrado */
+  margin-bottom: var(--spacing-lg); /* Espacio inferior */
+  color: var(--color-dark); /* Color oscuro */
+}
+
+/* Encabezado de página */
+.page-header {
+  background-color: var(--color-light); /* Fondo gris claro */
+  text-align: center; /* Texto centrado */
+  padding: var(--spacing-xl) var(--spacing-sm); /* Padding generoso */
+  margin-bottom: var(--spacing-lg); /* Espacio inferior */
+}
+
+/* Texto lead (destacado) */
+.lead {
+  font-size: 1.25rem; /* Tamaño ligeramente mayor */
+  color: #7F8C8D; /* Color gris */
+  margin-top: var(--spacing-sm); /* Espacio superior */
+}
+
+/* ==========================================
+   SECCIÓN 10: LLAMADA A LA ACCIÓN (CTA)
+   ========================================== */
+/* Sección de llamada a la acción */
+.cta {
+  background-color: var(--color-light); /* Fondo gris claro */
+  text-align: center; /* Texto centrado */
+  padding: var(--spacing-xl) var(--spacing-sm); /* Padding generoso */
+  margin-top: var(--spacing-xl); /* Espacio superior */
+}
+
+/* Título del CTA */
+.cta h2 {
+  margin-bottom: var(--spacing-sm); /* Espacio inferior */
+}
+
+/* Párrafo del CTA */
+.cta p {
+  margin-bottom: var(--spacing-lg); /* Espacio inferior */
+  color: #7F8C8D; /* Color gris */
+}
+
+/* ==========================================
+   SECCIÓN 11: EQUIPO
+   ========================================== */
+/* Grid del equipo */
+.team-grid {
+  display: grid; /* Activa CSS Grid */
+  grid-template-columns: 1fr; /* Una columna en móvil */
+  gap: var(--spacing-lg); /* Espacio entre miembros */
+  margin-top: var(--spacing-lg); /* Espacio superior */
+}
+
+/* Tarjeta de miembro del equipo */
+.team-member {
+  text-align: center; /* Texto centrado */
+  padding: var(--spacing-lg); /* Padding interno */
+  background-color: var(--color-white); /* Fondo blanco */
+  border-radius: var(--border-radius); /* Bordes redondeados */
+  box-shadow: var(--box-shadow); /* Sombra sutil */
+}
+
+/* Foto del miembro */
+.team-photo {
+  width: 150px; /* Ancho fijo */
+  height: 150px; /* Alto fijo */
+  border-radius: 50%; /* Forma circular */
+  margin: 0 auto var(--spacing-md); /* Centrado y espacio inferior */
+  object-fit: cover; /* Recorta la imagen para ajustar */
+}
+
+/* Nombre del miembro */
+.member-name {
+  font-size: 1.3rem; /* Tamaño mediano */
+  margin-bottom: var(--spacing-xs); /* Espacio inferior pequeño */
+}
+
+/* Rol del miembro */
+.member-role {
+  color: var(--color-primary); /* Color azul */
+  font-weight: bold; /* Negrita */
+  margin-bottom: var(--spacing-sm); /* Espacio inferior */
+}
+
+/* Biografía del miembro */
+.member-bio {
+  color: #7F8C8D; /* Color gris */
+}
+
+/* ==========================================
+   SECCIÓN 12: GALERÍA
+   ========================================== */
+/* Grid de galería */
+.gallery-grid {
+  display: grid; /* Activa CSS Grid */
+  grid-template-columns: 1fr; /* Una columna en móvil */
+  gap: var(--spacing-md); /* Espacio entre imágenes */
+}
+
+/* Item individual de galería */
+.gallery-item {
+  overflow: hidden; /* Oculta contenido que sobresale */
+  border-radius: var(--border-radius); /* Bordes redondeados */
+  box-shadow: var(--box-shadow); /* Sombra sutil */
+  transition: transform var(--transition-speed); /* Transición suave */
+}
+
+/* Hover en item de galería */
+.gallery-item:hover {
+  transform: scale(1.05); /* Efecto de zoom ligero */
+}
+
+/* Imagen de galería */
+.gallery-image {
+  width: 100%; /* Ocupa todo el ancho */
+  height: auto; /* Mantiene proporción */
+  display: block; /* Comportamiento de bloque */
+}
+
+/* Pie de foto */
+.gallery-caption {
+  padding: var(--spacing-sm); /* Padding interno */
+  background-color: var(--color-white); /* Fondo blanco */
+  text-align: center; /* Texto centrado */
+  font-size: 0.9rem; /* Tamaño pequeño */
+  color: #7F8C8D; /* Color gris */
+}
+
+/* ==========================================
+   SECCIÓN 13: SERVICIOS
+   ========================================== */
+/* Item de servicio */
+.service-item {
+  background-color: var(--color-white); /* Fondo blanco */
+  padding: var(--spacing-lg); /* Padding interno */
+  margin-bottom: var(--spacing-lg); /* Espacio inferior */
+  border-radius: var(--border-radius); /* Bordes redondeados */
+  box-shadow: var(--box-shadow); /* Sombra sutil */
+}
+
+/* Título del servicio */
+.service-title {
+  color: var(--color-primary); /* Color azul */
+  margin-bottom: var(--spacing-sm); /* Espacio inferior */
+}
+
+/* Descripción del servicio */
+.service-description {
+  margin-bottom: var(--spacing-md); /* Espacio inferior */
+  color: #7F8C8D; /* Color gris */
+}
+
+/* Contenedor de ejemplo */
+.service-example {
+  background-color: var(--color-light); /* Fondo gris claro */
+  padding: var(--spacing-md); /* Padding interno */
+  border-radius: var(--border-radius); /* Bordes redondeados */
+  margin-top: var(--spacing-md); /* Espacio superior */
+}
+
+/* ==========================================
+   SECCIÓN 14: FORMULARIOS
+   ========================================== */
+/* Formulario de ejemplo */
+.example-form,
+.contact-form {
+  max-width: 600px; /* Ancho máximo */
+  margin: 0 auto; /* Centrado horizontalmente */
+}
+
+/* Grupo de campo de formulario */
+.form-group {
+  margin-bottom: var(--spacing-md); /* Espacio inferior */
+}
+
+/* Etiquetas de formulario */
+label {
+  display: block; /* Comportamiento de bloque */
+  margin-bottom: var(--spacing-xs); /* Espacio inferior pequeño */
+  font-weight: bold; /* Negrita */
+  color: var(--color-dark); /* Color oscuro */
+}
+
+/* Inputs y textareas */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100%; /* Ocupa todo el ancho */
+  padding: var(--spacing-sm); /* Padding interno */
+  border: 2px solid #BDC3C7; /* Borde gris */
+  border-radius: var(--border-radius); /* Bordes redondeados */
+  font-family: var(--font-main); /* Misma fuente que el sitio */
+  font-size: 1rem; /* Tamaño de fuente base */
+  transition: border-color var(--transition-speed); /*
